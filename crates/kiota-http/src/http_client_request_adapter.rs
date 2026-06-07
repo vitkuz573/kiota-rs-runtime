@@ -315,11 +315,11 @@ impl RequestAdapter for HttpClientRequestAdapter {
         &*SERIALIZATION_WRITER_FACTORY_REGISTRY
     }
 
-    pub fn base_url(&self) -> &str {
+    fn base_url(&self) -> &str {
         &self.base_url
     }
 
-    pub fn set_base_url(&mut self, base_url: &str) {
+    fn set_base_url(&mut self, base_url: &str) {
         self.base_url = base_url.to_string();
     }
 }
