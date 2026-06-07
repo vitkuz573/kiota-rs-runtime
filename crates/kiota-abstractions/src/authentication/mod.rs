@@ -31,6 +31,7 @@ pub trait AccessTokenProvider: Send + Sync {
     fn allowed_hosts_validator(&self) -> &AllowedHostsValidator;
 }
 
+#[derive(Clone, Debug)]
 pub struct AllowedHostsValidator {
     allowed_hosts: std::collections::HashSet<String>,
 }

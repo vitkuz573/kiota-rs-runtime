@@ -33,12 +33,12 @@ impl HttpClientRequestAdapter {
         auth_provider: Arc<dyn AuthenticationProvider>,
         client: reqwest::Client,
         middlewares: Vec<Box<dyn crate::middleware::Middleware>>,
-    ) -> Self {
-        Self {
+    ) -> Result<Self, KiotaError> {
+        Ok(Self {
             auth_provider,
             pipeline: MiddlewarePipeline::new(client, middlewares),
             base_url: String::new(),
-        }
+        })
     }
 
     async fn get_response(
